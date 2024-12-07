@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background-color: rgb(233, 78, 78);
+    border-radius: 20px;
+    height: 550px;
+    width: 700px;
+    display: grid;
+    grid-template-areas: 
+        ". title ."
+        "colors canvas ."
+        ". options .";
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+    align-self: center;
+}
+
+.colors {
+    grid-area: colors;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.canvas {
+    grid-area: canvas;
+    height: 400px;
+    width: 550px;
+    background: white;
+    border-radius: 20px;
+}
+
+.options {
+    grid-area: options;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
