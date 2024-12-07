@@ -1,5 +1,6 @@
 let canvas = document.querySelector("#canvas");
 let innerCanvas;
+let color = document.querySelector('input[name="color"]:checked').value;
 
 function createGrid(size) {
     innerCanvas = document.createElement("div");
@@ -24,7 +25,7 @@ function createRow(size, rowIndex) {
         pixel.style.boxSizing = "borderBox";
         pixel.style.border = "black solid 1px";
         pixel.addEventListener("mouseover", (event) => {
-            pixel.style.backgroundColor = "pink";
+            pixel.style.backgroundColor = color;
         });
 
         // Calculating the borders to remove
@@ -52,4 +53,10 @@ let slider = document.querySelector("#slider");
 slider.addEventListener("input", (event) => {
     console.log(slider.value);
     updateGrid(slider.value);
+});
+
+let colors = document.querySelector("#colors");
+
+colors.addEventListener("input", (event) => {
+    color = document.querySelector('input[name="color"]:checked').value;
 });
