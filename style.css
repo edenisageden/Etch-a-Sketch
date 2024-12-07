@@ -59,3 +59,57 @@ body {
     align-items: center;
     gap: 20px;
 }
+
+#black, #red, #yellow, #blue, #rainbow {
+    display: none;
+}
+
+#black:checked + #blackLabel, #red:checked + #redLabel, #yellow:checked + #yellowLabel, #blue:checked + #blueLabel, #rainbow:checked + #rainbowLabel {
+    border: white solid 5px;
+}
+
+#blackLabel {
+    box-sizing: border-box;
+    background-color: black;
+    border: white solid 2px;
+    width: 30px;
+    height: 30px;
+}
+
+#redLabel {
+    box-sizing: border-box;
+    background-color: red;
+    border: white solid 2px;
+    width: 30px;
+    height: 30px;
+}
+
+#yellowLabel {
+    box-sizing: border-box;
+    background-color: yellow;
+    border: white solid 2px;
+    width: 30px;
+    height: 30px;
+}
+
+#blueLabel {
+    box-sizing: border-box;
+    background-color: blue;
+    border: white solid 2px;
+    width: 30px;
+    height: 30px;
+}
+
+#rainbowLabel {
+    box-sizing: border-box;
+    /* background: rgb(255,0,0); */
+    /* background: linear-gradient(125deg, rgba(255,0,0,1) 0%, rgba(255,244,0,1) 35%, rgba(0,116,255,1) 65%, rgba(255,0,0,1) 100%); */
+    background: -webkit-linear-gradient(315deg, red 33%,yellow 0.1%,yellow 66%, blue 0.1%, blue 100%);
+    /* background: -moz-linear-gradient(left, black 50%, white 0%); */
+    /* background: -ms-linear-gradient(left, black 50%, white 0%); */
+    /* background: linear-gradient(left, black 50%, white 0%); */
+    border: white solid 2px;
+    width: 30px;
+    height: 30px;
+}
+

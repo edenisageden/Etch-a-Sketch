@@ -23,6 +23,7 @@ function createRow(size, rowIndex) {
         pixel.style.boxSizing = "borderBox";
         pixel.style.border = "black solid 1px";
         pixel.addEventListener("mouseover", (event) => {
+            checkForRainbow();
             pixel.style.backgroundColor = color;
         });
 
@@ -43,7 +44,7 @@ function updateGrid(size) {
     createGrid(size);
 }
 
-createGrid(12);
+createGrid(16);
 
 let slider = document.querySelector("#slider");
 
@@ -62,3 +63,14 @@ let clear = document.querySelector("#clear");
 clear.addEventListener("click", (event) => {
     updateGrid(slider.value);
 });
+
+function checkForRainbow() {
+    if (document.querySelector('input[name="color"]:checked').value === "rainbow") {
+        color = returnRandomColor();
+    }
+}
+
+function returnRandomColor() {
+    let randomNumber = Math.floor(Math.random() * 361);
+    return randomColor = `hsl(${randomNumber}, 100%, 50%, 100%)`;
+}

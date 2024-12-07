@@ -11,11 +11,16 @@
     <div class="content">
         <h1 class="title">Etch-a-Sketch</h1>
         <div class="colors" id="colors">
-            <input type="radio" name="color" value="black" checked="checked">
-            <input type="radio" name="color" value="red">
-            <input type="radio" name="color" value="yellow">
-            <input type="radio" name="color" value="blue">
-            <input type="radio" name="color" value="rainbow">
+            <input type="radio" id="black" name="color" value="black" checked="checked">
+            <label for="black" id="blackLabel"></label>
+            <input type="radio" id="red" name="color" value="red">
+            <label for="red" id="redLabel"></label>
+            <input type="radio" id="yellow" name="color" value="yellow">
+            <label for="yellow" id="yellowLabel"></label>
+            <input type="radio" id="blue" name="color" value="blue">
+            <label for="blue" id="blueLabel"></label>
+            <input type="radio" id="rainbow" name="color" value="rainbow">
+            <label for="rainbow" id="rainbowLabel"></label>
         </div>
         <div class="canvas" id="canvas"></div>
         <div class="options">
