@@ -13,8 +13,10 @@ function createGrid(size) {
 }
 
 function createRow(size, rowIndex) {
+    // let pixelSize = Math.ceil(400 / size);
     let row = document.createElement("span");
     row.style.display = "flex";
+    // row.style.height = `${pixelSize.toString()}px`;
     row.style.flex = "1 1 auto";
     for (let i = 1; i <= size; i++) {
         let pixel = document.createElement("div");
@@ -22,7 +24,7 @@ function createRow(size, rowIndex) {
         pixel.style.boxSizing = "borderBox";
         pixel.style.border = "black solid 1px";
         pixel.addEventListener("mouseover", (event) => {
-            pixel.style.backgroundColor = "black";
+            pixel.style.backgroundColor = "pink";
         });
 
         // Calculating the borders to remove
@@ -32,6 +34,7 @@ function createRow(size, rowIndex) {
         if (rowIndex === size) pixel.style.borderBottom = "none";
 
         pixel.style.flex = "1 1 auto";
+        // pixel.setAttribute("style", `width: ${pixelSize}px; height: ${pixelSize}px`);
         row.appendChild(pixel);
     }
     return row;
@@ -42,10 +45,11 @@ function updateGrid(size) {
     createGrid(size);
 }
 
-createGrid(8);
+createGrid(12);
 
 let slider = document.querySelector("#slider");
 
 slider.addEventListener("input", (event) => {
+    console.log(slider.value);
     updateGrid(slider.value);
 });

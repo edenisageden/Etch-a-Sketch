@@ -48,6 +48,8 @@ body {
     background: white;
     border-radius: 20px;
     overflow: hidden;
+    outline: rgb(233, 78, 78) 3px solid;
+    outline-offset: -2px;
 }
 
 .options {
