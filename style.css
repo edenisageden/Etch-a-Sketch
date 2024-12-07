@@ -16,7 +16,7 @@ body {
     background-color: rgb(233, 78, 78);
     border-radius: 20px;
     height: 550px;
-    width: 700px;
+    width: 550px;
     display: grid;
     grid-template-areas: 
         ". title ."
@@ -44,9 +44,10 @@ body {
 .canvas {
     grid-area: canvas;
     height: 400px;
-    width: 550px;
+    width: 400px;
     background: white;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .options {
