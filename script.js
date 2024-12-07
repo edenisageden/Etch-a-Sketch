@@ -22,7 +22,7 @@ function createRow(size, rowIndex) {
     let row = document.createElement("span");
     row.style.display = "flex";
     row.style.flex = "1 1 auto";
-    for (let i = 1; i <= size; i++) {
+    for (let i = 1; i <= size * 1.5; i++) {
         let pixel = document.createElement("div");
         pixel.setAttribute("id", "pixel");
         pixel.style.boxSizing = "borderBox";
@@ -59,7 +59,7 @@ function createRow(size, rowIndex) {
 
         // Calculating the borders to remove
         if (i === 1) pixel.style.borderLeft = "none";
-        if (i === size) pixel.style.borderRight = "none";
+        if (i === size * 1.5) pixel.style.borderRight = "none";
         if (rowIndex === 1) pixel.style.borderTop = "none";
         if (rowIndex === size) pixel.style.borderBottom = "none";
 

@@ -6,6 +6,9 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>        
 </head>
 <body>
     <div class="content">
@@ -24,8 +27,8 @@
         </div>
         <div class="canvas" id="canvas"></div>
         <div class="options">
-            <input type="range" id="slider" min="8" max="24" step="4" default value="16">
-            <button id="clear">CLEAR</button>
+            <input type="range" id="slider" class="slider" min="8" max="24" step="2" default value="16">
+            <button id="clear">ERASE</button>
         </div>
     </div>
 </body>
