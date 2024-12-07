@@ -1,6 +1,11 @@
 let canvas = document.querySelector("#canvas");
 let innerCanvas;
-let color = document.querySelector('input[name="color"]:checked').value;
+let color = 'rgba(0, 0, 0, 0.33)';
+
+let red = 'rgba(255, 0, 0, 0.33)';
+let yellow = 'rgba(255, 255, 0, 0.33)';
+let blue = 'rgba(0, 0, 255, 0.33)';
+let black = 'rgba(0, 0, 0, 0.33)'; 
 
 function createGrid(size) {
     innerCanvas = document.createElement("div");
@@ -23,7 +28,32 @@ function createRow(size, rowIndex) {
         pixel.style.boxSizing = "borderBox";
         pixel.style.border = "black solid 1px";
         pixel.addEventListener("mouseover", (event) => {
-            checkForRainbow();
+            if (!checkForRainbow())
+            {
+                let shadedColor = checkShading(pixel.style.backgroundColor, color);
+                if (shadedColor != null) {
+                    color = shadedColor;
+                }
+                else {
+                    let selectedColor = document.querySelector('input[name="color"]:checked').value;
+                    switch(selectedColor) {
+                        case "black":
+                            color = black;
+                            break;
+                        case "red":
+                            color = red;
+                            break;
+                        case "yellow":
+                            color = yellow;
+                            break;
+                        case "blue":
+                            color = blue;
+                            break;
+                        default: 
+                            break;
+                    }
+                }
+            }
             pixel.style.backgroundColor = color;
         });
 
@@ -55,7 +85,23 @@ slider.addEventListener("input", (event) => {
 let colors = document.querySelector("#colors");
 
 colors.addEventListener("input", (event) => {
-    color = document.querySelector('input[name="color"]:checked').value;
+    let selectedColor = document.querySelector('input[name="color"]:checked').value;
+    switch(selectedColor) {
+        case "black":
+            color = black;
+            break;
+        case "red":
+            color = red;
+            break;
+        case "yellow":
+            color = yellow;
+            break;
+        case "blue":
+            color = blue;
+            break;
+        default: 
+            break;
+    }
 });
 
 let clear = document.querySelector("#clear");
@@ -67,10 +113,35 @@ clear.addEventListener("click", (event) => {
 function checkForRainbow() {
     if (document.querySelector('input[name="color"]:checked').value === "rainbow") {
         color = returnRandomColor();
+        return true;
     }
+    else return false;
 }
 
 function returnRandomColor() {
     let randomNumber = Math.floor(Math.random() * 361);
     return randomColor = `hsl(${randomNumber}, 100%, 50%, 100%)`;
+}
+
+function checkShading(currentColor, changeColor) {
+    let alpha = currentColor.slice(-5, -1)
+    let currentColorWithoutAlpha = currentColor.slice(0, -7);
+    let changeColorWithoutAlpha = changeColor.slice(0, -7);
+    let colorType = currentColor.slice(0, 4); // rgb( if rainbow and rgba if colors
+
+    if (currentColorWithoutAlpha === changeColorWithoutAlpha) {
+        switch (alpha) {
+            case "0.33":
+                return `${changeColorWithoutAlpha}, 0.66)`;
+            case "0.66":
+                return `${changeColorWithoutAlpha}, 0.99)`;
+            case "0.99":
+                return `${changeColorWithoutAlpha}, 0.99)`;
+            default:
+                return null;
+        }
+    }
+    else {
+        return null;
+    }
 }
